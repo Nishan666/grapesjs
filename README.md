@@ -1,3 +1,43 @@
+# Clone the full repo
+git clone https://github.com/GrapesJS/grapesjs.git
+cd grapesjs
+
+# Install pnpm
+sudo npm install -g pnpm
+
+# Install and build everything
+pnpm install
+pnpm build
+
+# Now move core to root and remove everything else
+cd ..
+mkdir grapesjs-new
+cp -r grapesjs/packages/core/* grapesjs-new/
+rm -rf grapesjs
+mv grapesjs-new grapesjs
+
+# Push to your repo
+cd grapesjs
+git init
+git add -A
+git commit -m "Initial commit"
+git remote add origin git@github.com:Nishan666/grapesjs.git
+git branch -M main
+git push -u origin main
+
+# Install in your app
+cd ~/7edge/tpvision/wave-creator-web-aplication
+yarn cache clean
+yarn install
+
+
+
+# package.json
+"grapesjs": "git+https://github.com/Nishan666/grapesjs.git",
+
+
+
+
 # [GrapesJS](http://grapesjs.com)
 
 [![Build Status](https://github.com/GrapesJS/grapesjs/actions/workflows/quality.yml/badge.svg)](https://github.com/GrapesJS/grapesjs/actions)
@@ -23,18 +63,28 @@ Newsletter Demo - http://grapesjs.com/demo-newsletter-editor.html<br/>
 
 ## Table of contents
 
-- [Features](#features)
-- [Download](#download)
-- [Usage](#usage)
-- [Development](#development)
-- [Documentation](#documentation)
-- [API](#api)
-- [Testing](#testing)
-- [Plugins](#plugins)
-- [Support](#support)
-- [Changelog](https://github.com/GrapesJS/grapesjs/releases)
-- [Contributing](https://github.com/GrapesJS/grapesjs/blob/dev/CONTRIBUTING.md)
-- [License](#license)
+- [Clone the full repo](#clone-the-full-repo)
+- [Install pnpm](#install-pnpm)
+- [Install and build everything](#install-and-build-everything)
+- [Now move core to root and remove everything else](#now-move-core-to-root-and-remove-everything-else)
+- [Push to your repo](#push-to-your-repo)
+- [Install in your app](#install-in-your-app)
+- [package.json](#packagejson)
+- [GrapesJS](#grapesjs)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [Download](#download)
+  - [Usage](#usage)
+  - [Development](#development)
+  - [Documentation](#documentation)
+  - [API](#api)
+  - [Testing](#testing)
+  - [Plugins](#plugins)
+    - [Wrappers](#wrappers)
+    - [Extensions](#extensions)
+    - [Presets](#presets)
+  - [Support](#support)
+  - [License](#license)
 
 ## Features
 
